@@ -11,8 +11,8 @@ const app = new App({
   appToken: process.env.APP_TOKEN
 });
 
-app.event("reaction_added", async ({ context, event}) => {
-  if (event.reaction == "white_check_mark"){
+app.event("reaction_added", async ({ context, event, item}) => {
+  if (event.reaction == "white_check_mark"  && event.item.channel == "C034H2X55D4"){
     try {
       const command = event.text;
       let reply;
@@ -29,11 +29,45 @@ app.event("reaction_added", async ({ context, event}) => {
 });
 
 app.event("reaction_removed", async ({ context, event}) => {
-  if (event.reaction == "white_check_mark"){
+  if (event.reaction == "white_check_mark" && event.item.channel == "C034H2X55D4"){
     try {
       const command = event.text;
       let reply;
       reply = `:white_check_mark: Removed`;
+      await app.client.chat.postMessage({
+        token: context.botToken,
+        channel: 'C034QGR0X6Z',
+        text: `${reply}`,
+      });
+    } catch (e) {
+      console.log(`error responding ${e}`);
+    }
+  }
+});
+
+app.event("reaction_added", async ({ context, event}) => {
+  if (event.reaction == "warning" && event.item.channel == "C034H2X55D4"){
+    try {
+      const command = event.text;
+      let reply;
+      reply = `:warning: Oops looks like we are missing some information.`;
+      await app.client.chat.postMessage({
+        token: context.botToken,
+        channel: 'C034QGR0X6Z',
+        text: `${reply}`,
+      });
+    } catch (e) {
+      console.log(`error responding ${e}`);
+    }
+  }
+});
+
+app.event("reaction_removed", async ({ context, event}) => {
+  if (event.reaction == "warning" && event.item.channel == "C034H2X55D4"){
+    try {
+      const command = event.text;
+      let reply;
+      reply = `:warning: Removed`;
       await app.client.chat.postMessage({
         token: context.botToken,
         channel: 'C034QGR0X6Z',
