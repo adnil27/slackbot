@@ -11,21 +11,32 @@ const app = new App({
   appToken: process.env.APP_TOKEN
 });
 
-app.event("reaction_added", async ({ context, event }) => {
-  try {
-    const command = event.text;
-    if (event == "question") {
-      console.log ("it worked")
+// Import slack bot dependancies
+const { WebClient, LogLevel } = require("@slack/web-api");
+require('botkit');
+
+// import envrionemnt variables (secrets)
+require("dotenv").config();
+
+// Start slack webclient
+const client = new WebClient(process.env.SLACK_BOT_TOKEN, {});
+
+
+
+app.event("reaction_added", async ({ context, event}) => {
+  if (event.reaction == "question"){
+    try {
+      const command = event.text;
+      let reply;
+      reply = `Fantastic! Another query resolved by <@${event.user}>`;
+      await app.client.chat.postMessage({
+        token: context.botToken,
+        channel: 'C034QGR0X6Z',
+        text: `${reply}`,
+      });
+    } catch (e) {
+      console.log(`error responding ${e}`);
     }
-    let reply;
-    reply = `Fantastic! Another query resolved by <@${event.user}>`;
-    await app.client.chat.postMessage({
-      token: context.botToken,
-      channel: 'C034QGR0X6Z',
-      text: `${reply}`,
-    });
-  } catch (e) {
-    console.log(`error responding ${e}`);
   }
 });
 
