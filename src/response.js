@@ -154,6 +154,37 @@ app.command("/psbotcommands", async ({ command, ack, say }) => {
   }
 });
 
+app.command("/add-ps-channel-guideline", async ({ command, ack, say }) => {
+  try {
+    await ack();
+    const data = command.text.split("|");
+    const newGuideline = {
+      header: data[0].trim(),
+      content: data[1].trim(),
+    };
+    // save data to db.json
+    fs.readFile("psGuidelines.json", function (err, data) {
+      const json = JSON.parse(data);
+      json.data.push(newGuideline);
+      fs.writeFile("psGuidelines.json", JSON.stringify(json), function (err) {
+        if (err) throw err;
+        console.log("Successfully saved to psGuidelines.json!");
+      });
+    });
+    say(`:tado: You've added a new Guideline :tada:\n*${newGuideline.header}*\n*${newGuideline.content}*`);
+  } catch (error) {
+    console.log("err");
+    console.error(error);
+  }
+});
+
+
+
+
+
+
+
+
 app.command("/product-support", async ({ command, ack, say }) => {
   try {
     await ack();
