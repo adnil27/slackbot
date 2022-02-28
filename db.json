@@ -1,20 +1,17 @@
 {
   "data":[
     {
-        "content": "Hello! :wave:\nTake a peek and see if you can find what you are looking for! :mag_right: "
+        "header": ":robot_face: *PS Slackbot Commands*",
+        "content": "Go on have a little peek to see what I can do! :nerd_face:"
     },
-      {
-          "content": ":question: *How to use the channel*"
-      },
-      {
-          "content": ":robot_face:*PS Slackbot Commands*\nSay hello to me. Just type _hi_, _hey_ or _hello_ and I will greet you right back.\nCommand 2"
-      },
-      {
-          "content": ":books:*Product Support Wiki*\n<http://www.example.com|Product Support Wiki>"
-      },
-      {
-          "content": ":link:*Useful links*\n<http://www.example.com|Partner Help Centre>\n<http://www.example.com|Treatwell Pro Help Centre>\n"
-      }
+    {
+        "header": "*Say Hello* :wave:",
+        "content": "Say hello to me and I will say hello right back.\nJust type _hi_, _hey_ or _hello_ ."
+    },
+    {
+        "header": "*Command Header 2",
+        "content": "Command 2 Description...> "
+    }
 
   ]
 }
