@@ -1,0 +1,13 @@
+useCase: "Member mentions user"
+  type: "event"
+  action: "mention"
+  trigger: "app_mention"
+  reply: "`Hello <@${event.user}> :wave: Looking for a little help? Type '/help' into a direct message to your *Slackbot* to see how I can help you. :nerd_face:\n\n:pray: Please don't type '/help' in *#product-support*. The message will be visible to *everyone* :flushed:`;"
+  thread: false
+
+useCase: "Member mentions user"
+  type: "event"
+  action: "mention"
+  trigger: "app_mention"
+  reply: "`Hello {{event.user}} :wave: Looking for a little help? Type '/help' into a direct message to your *Slackbot* to see how I can help you. :nerd_face:\n\n:pray: Please don't type '/help' in *#product-support*. The message will be visible to *everyone* :flushed:`;"
+  thread: false

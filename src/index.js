@@ -33,16 +33,21 @@ const app = new App({
 
 (async () => {
   // Reactions
-  queryResolvedByUser(app)
-  queryReopenedByUser(app)
-  queryNotEnoughInfo(app)
-  queryNotEnoughInfoRemoved(app)
-  // members
-  newMemberJoinedChannel(app)
-  // app (bot) mentions
-  memberMentionsBot(app)
-  botRespondsToHelloMessage(app)
-  botRespondsToSalesforceMessage(app)
+  // queryResolvedByUser(app)
+  // queryReopenedByUser(app)
+  // queryNotEnoughInfo(app)
+  // queryNotEnoughInfoRemoved(app)
+  // // members
+  // newMemberJoinedChannel(app)
+  // // app (bot) mentions
+  // memberMentionsBot(app)
+  // botRespondsToHelloMessage(app)
+  // botRespondsToSalesforceMessage(app)
+  
+  // import yml files with fs
+  // parse with js-yml node package
+  // loop over yml properties
+    //for each useCaseLoader(app, useCase)
   const port = 3000
   // Start your app
   await app.start(process.env.PORT || port);
