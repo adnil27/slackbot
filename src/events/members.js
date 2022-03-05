@@ -12,4 +12,4 @@ export const newMemberJoinedChannel = (app) => {
       console.log(`error responding ${e}`);
     }
   });
-}
+};

@@ -1,0 +1,24 @@
+{
+  "data":[
+    {
+        "keyword": "",
+        "header": "*PS Help Commands*",
+        "content": ":nerd_face: Please don't use slash commands in the *#product-support* channel. The reply will be visible to everyone :flushed:"
+    },
+      {
+          "keyword": "",
+          "header": "/ps_channel_guidelines",
+          "content": "Type '/ps_channel_guidelines' into the *PS Bot* app to see the channel guidelines for *#product-support*"
+      },
+      {
+          "keyword": "products",
+          "header": "/ps_trouble-shooting",
+          "content": "Type '/ps_trouble_shooting' into the *PS Bot* app for web and app troubleshooting guides"
+      },
+      {
+          "keyword": "reset password",
+          "header": "/ps_useful_links",
+          "content": "Type '/ps_channel_guidelines' into the *PS Bot* app to see a list of the most useful links"
+      }
+  ]
+}

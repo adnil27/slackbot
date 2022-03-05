@@ -1,5 +1,5 @@
 export const memberMentionsBot = (app) => {
-  app.event("app_mention", async ({ context, event }) => {
+  app.event('app_mention', async ({ context, event }) => {
     try {
       const reply = `Hello <@${event.user}> :wave: Looking for a little help? Type '/help' into a direct message to your *Slackbot* to see how I can help you. :nerd_face:\n\n:pray: Please don't type '/help' in *#product-support*. The message will be visible to *everyone* :flushed:`;
       await app.client.chat.postMessage({
@@ -13,4 +13,4 @@ export const memberMentionsBot = (app) => {
       console.log(`error responding ${e}`);
     }
   });
-}
+};

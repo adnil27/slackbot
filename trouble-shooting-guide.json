@@ -1,0 +1,29 @@
+{
+  "data":[
+    {
+        "keyword": "",
+        "header": "*Troubleshooting*",
+        "content": ":nerd_face: Just some general guidelines to help us help you."
+    },
+      {
+          "keyword": "",
+          "header": "Web Browser",
+          "content": "step 1: \nstep 2: \n step 3:"
+      },
+      {
+          "keyword": "",
+          "header": "Mobile Browser",
+          "content": "workflow 1: \nworkflow 2: \n workflow 3:"
+      },
+      {
+          "keyword": "",
+          "header": "iOS app",
+          "content": "Web browser: \nMobile browser \niOS app \nAndroid app"
+      },
+      {
+          "keyword": "",
+          "header": "Android app",
+          "content": "Wiki link\n Connect:Partner Help Centre\nTreatwell Pro:Partner Help Centre"
+      }
+  ]
+}
