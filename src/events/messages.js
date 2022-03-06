@@ -1,6 +1,17 @@
 export const botRespondsToHelloMessage = (app) => {
-  app.message(/hey|hi|hello/, ({ message, say }) => {
-    say({ text: `Hey! <@${message.user}> :wave: While you are waiting for one of the PS team to get back to you, why don't you try typing '/help' into a direct message to your *Slackbot* to see how I can help you. :nerd_face:\n\n:pray: Please don't type '/help' in *#product-support*. The message will be visible to *everyone* :flushed:`, thread_ts: message.ts });
+  app.message(/hey|hi|hello/, ({ message, say, context }) => {
+    if (message.channel === 'C034H2X55D4' && message.thread === message.thread_ts) {
+      try {
+        app.client.chat.postEphemeral({
+          token: context.botToken,
+          channel: message.channel,
+          user: message.user,
+          text: `Hello <@${message.user}> :wave:\n\nWhile you are waiting for the PS Team to get back to you, take a peek and see if you can find your answer in here.`
+        });
+      } catch (e) {
+        console.log(`error responding ${e}`);
+      }
+    }
   });
 };
 

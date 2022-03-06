@@ -52,15 +52,35 @@ export const showHelpCommands = (app) => {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: help.header
+              text: help.intro
             }
           },
           {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: help.content
+              text: help.commands
             }
+          },
+          {
+            type: 'divider'
+          },
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: help.instructions
+            }
+          },
+          {
+            type: 'image',
+            title: {
+              type: 'plain_text',
+              text: help.imgText,
+              emoji: true
+            },
+            image_url: help.imgURL,
+            alt_text: help.altText
           }
         );
       });
