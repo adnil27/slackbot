@@ -6,12 +6,57 @@ export const botRespondsToHelloMessage = (app) => {
           token: context.botToken,
           channel: message.channel,
           user: message.user,
-          text: `Hello <@${message.user}> :wave:\n\nWhile you are waiting for the PS Team to get back to you, take a peek and see if you can find your answer in here.`
+          blocks: [
+            {
+              type: 'section',
+              block_id: 'section_0',
+              text: {
+                type: 'mrkdwn',
+                text: `Hey there <@${message.user}>! How can we help? Choose an option.`
+              },
+              accessory: {
+                action_id: 'selectmenu',
+                type: 'static_select',
+                placeholder: {
+                  type: 'plain_text',
+                  text: 'select items'
+                },
+                options: [
+                  {
+                    text: {
+                      type: 'plain_text',
+                      text: 'item0'
+                    },
+                    value: 'value-0'
+                  },
+                  {
+                    text: {
+                      type: 'plain_text',
+                      text: 'item1'
+                    },
+                    value: 'value-1'
+                  },
+                  {
+                    text: {
+                      type: 'plain_text',
+                      text: 'item2'
+                    },
+                    value: 'value-2'
+                  }
+                ]
+              }
+            }
+          ]
         });
       } catch (e) {
         console.log(`error responding ${e}`);
       }
     }
+  });
+  app.action('selectmenu', async ({ body, ack, say }) => {
+    // Acknowledge the action
+    await ack();
+    await say(`<@${body.user.id}> clicked the button`);
   });
 };
 
