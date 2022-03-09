@@ -1,0 +1,64 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "You chose *Martketplace*"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "What is the issue affecting?"
+			},
+			"accessory": {
+				"type": "static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Select a topic",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Website is down",
+							"emoji": true
+						},
+						"value": "value-pr-0"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Missing Venue Availibity",
+							"emoji": true
+						},
+						"value": "value-pr-1"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Archiving a venue page",
+							"emoji": true
+						},
+						"value": "value-pr-2"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Internal Tools",
+							"emoji": true
+						},
+						"value": "value-pr-3"
+					}
+				],
+				"action_id": "problem_report_one_selected"
+			}
+		}
+	]
+}

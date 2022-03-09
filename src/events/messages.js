@@ -1,3 +1,20 @@
+// require the fs module that's built into Node.js
+import fs from 'fs';
+// get the raw data from the db.json file
+const raw = fs.readFileSync('botRespondsToHelloMessage-topics.json');
+// parse the raw bytes from the file as JSON
+const topics = JSON.parse(raw);
+
+// get the raw data from the db.json file
+const raw1 = fs.readFileSync('botRespondsToHelloMessage-problemReport.json');
+// parse the raw bytes from the file as JSON
+const problemReportSelected = JSON.parse(raw1);
+
+// get the raw data from the db.json file
+const raw2 = fs.readFileSync('botRespondsToHelloMessage-pr-1.json');
+// parse the raw bytes from the file as JSON
+const problemReportSelected1 = JSON.parse(raw2);
+
 export const botRespondsToHelloMessage = (app) => {
   app.message(/hey|hi|hello/, ({ message, say, context }) => {
     if (message.channel === 'C034H2X55D4' && message.thread === message.thread_ts) {
@@ -6,59 +23,50 @@ export const botRespondsToHelloMessage = (app) => {
           token: context.botToken,
           channel: message.channel,
           user: message.user,
-          blocks: [
-            {
-              type: 'actions',
-              elements: [{
-                type: 'static_select',
-                placeholder: {
-                  type: 'plain_text',
-                  text: 'XXXX',
-                  emoji: true
-                },
-                options: [
-                  {
-                    text: {
-                      type: 'plain_text',
-                      text: '*this is plain_text text*',
-                      emoji: true
-                    },
-                    value: 'value-0'
-                  },
-                  {
-                    text: {
-                      type: 'plain_text',
-                      text: '*this is plain_text text*',
-                      emoji: true
-                    },
-                    value: 'value-1'
-                  }
-                ], // some logic here for option values
-                action_id: 'selectmenu'
-              }]
-            }
-          ]
+          attachments: [topics]
         });
       } catch (e) {
         console.log(`error responding ${e}`);
       }
     }
   });
-  app.action('selectmenu', async ({ body, ack, say, action, respond }) => {
+  app.action('static_select-action', async ({ ack, action, respond }) => {
     // Acknowledge the action
     await ack();
     if (action.selected_option.value === 'value-0') {
       await respond({
-        text: 'you selected value 0',
         response_type: 'ephemeral',
-        replace_original: false
+        replace_original: false,
+        user: action.user,
+        attachments: [problemReportSelected]
       });
     }
     if (action.selected_option.value === 'value-1') {
       await respond({
         text: 'you selected value 1',
         response_type: 'ephemeral',
-        replace_original: false
+        replace_original: false,
+        user: action.user
+      });
+    }
+  });
+  app.action('problem_report_selected', async ({ ack, action, respond, client }) => {
+    // Acknowledge the action
+    await ack();
+    if (action.selected_option.value === 'value-pr-0') {
+      await respond({
+        response_type: 'ephemeral',
+        replace_original: false,
+        user: action.user,
+        attachments: [problemReportSelected1]
+      });
+    }
+    if (action.selected_option.value === 'value-pr-1') {
+      await respond({
+        text: 'you selected value 1',
+        response_type: 'ephemeral',
+        replace_original: false,
+        user: action.user
       });
     }
   });

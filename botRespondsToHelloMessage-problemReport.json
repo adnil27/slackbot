@@ -1,0 +1,64 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "You chose *Problem Report*\nOk let's not panic yet... There are still lots of things we can do to fix this by ourselves. We got this :muscle:"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "What is the issue affecting?"
+			},
+			"accessory": {
+				"type": "static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Select a topic",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Marketplace",
+							"emoji": true
+						},
+						"value": "value-pr-0"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Treatwell Pro",
+							"emoji": true
+						},
+						"value": "value-pr-1"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Connect",
+							"emoji": true
+						},
+						"value": "value-pr-2"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Internal Tools",
+							"emoji": true
+						},
+						"value": "value-pr-3"
+					}
+				],
+				"action_id": "problem_report_selected"
+			}
+		}
+	]
+}
