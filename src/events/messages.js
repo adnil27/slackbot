@@ -8,43 +8,34 @@ export const botRespondsToHelloMessage = (app) => {
           user: message.user,
           blocks: [
             {
-              type: 'section',
-              block_id: 'section_0',
-              text: {
-                type: 'mrkdwn',
-                text: `Hey there <@${message.user}>! How can we help? Choose an option.`
-              },
-              accessory: {
-                action_id: 'selectmenu',
+              type: 'actions',
+              elements: [{
                 type: 'static_select',
                 placeholder: {
                   type: 'plain_text',
-                  text: 'select items'
+                  text: 'XXXX',
+                  emoji: true
                 },
                 options: [
                   {
                     text: {
                       type: 'plain_text',
-                      text: 'item0'
+                      text: '*this is plain_text text*',
+                      emoji: true
                     },
                     value: 'value-0'
                   },
                   {
                     text: {
                       type: 'plain_text',
-                      text: 'item1'
+                      text: '*this is plain_text text*',
+                      emoji: true
                     },
                     value: 'value-1'
-                  },
-                  {
-                    text: {
-                      type: 'plain_text',
-                      text: 'item2'
-                    },
-                    value: 'value-2'
                   }
-                ]
-              }
+                ], // some logic here for option values
+                action_id: 'selectmenu'
+              }]
             }
           ]
         });
@@ -53,10 +44,17 @@ export const botRespondsToHelloMessage = (app) => {
       }
     }
   });
-  app.action('selectmenu', async ({ body, ack, say }) => {
+  app.action('selectmenu', async ({ body, ack, say, action }) => {
     // Acknowledge the action
     await ack();
-    await say(`<@${body.user.id}> clicked the button`);
+    if (action.selected_option.value === 'value-0') {
+      await say(`<@${body.user.id}> clicked value 0`);
+      console.log(action);
+    }
+    if (action.selected_option.value === 'value-1') {
+      await say(`<@${body.user.id}> clicked value 1`);
+      console.log(action);
+    }
   });
 };
 
