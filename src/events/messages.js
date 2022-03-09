@@ -44,16 +44,22 @@ export const botRespondsToHelloMessage = (app) => {
       }
     }
   });
-  app.action('selectmenu', async ({ body, ack, say, action }) => {
+  app.action('selectmenu', async ({ body, ack, say, action, respond }) => {
     // Acknowledge the action
     await ack();
     if (action.selected_option.value === 'value-0') {
-      await say(`<@${body.user.id}> clicked value 0`);
-      console.log(action);
+      await respond({
+        text: 'you selected value 0',
+        response_type: 'ephemeral',
+        replace_original: false
+      });
     }
     if (action.selected_option.value === 'value-1') {
-      await say(`<@${body.user.id}> clicked value 1`);
-      console.log(action);
+      await respond({
+        text: 'you selected value 1',
+        response_type: 'ephemeral',
+        replace_original: false
+      });
     }
   });
 };
