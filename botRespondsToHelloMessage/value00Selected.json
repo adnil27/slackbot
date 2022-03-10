@@ -4,7 +4,7 @@
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": "You chose *Martketplace*"
+				"text": "You chose *a partner*"
 			}
 		},
 		{
@@ -20,44 +20,52 @@
 				"type": "static_select",
 				"placeholder": {
 					"type": "plain_text",
-					"text": "Select a topic",
+					"text": "Select an option",
 					"emoji": true
 				},
 				"options": [
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Website is down",
+							"text": "Treatwell Marketplace: Connect User",
 							"emoji": true
 						},
-						"value": "value-pr-0"
+						"value": "value-0"
 					},
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Missing Venue Availibity",
+							"text": "Treatwell Marketplace: TWPro User",
 							"emoji": true
 						},
-						"value": "value-pr-1"
+						"value": "value-1"
 					},
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Archiving a venue page",
+							"text": "Uala Marketplace",
 							"emoji": true
 						},
-						"value": "value-pr-2"
+						"value": "value-2"
 					},
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Internal Tools",
+							"text": "Connect",
 							"emoji": true
 						},
-						"value": "value-pr-3"
+						"value": "value-3"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "TW Pro",
+							"emoji": true
+						},
+						"value": "value-4"
 					}
 				],
-				"action_id": "problem_report_one_selected"
+				"action_id": "value0_0_selected"
 			}
 		}
 	]

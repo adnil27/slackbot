@@ -4,7 +4,7 @@
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": "You chose *Problem Report*\nOk let's not panic yet... There are still lots of things we can do to fix this by ourselves. We got this :muscle:"
+				"text": "You selected *Problem Report* :scream:\n\nJust kidding! :wink: Don't worry, there are still lots of things we can do to solve this by ourselves. We got this... :muscle:"
 			}
 		},
 		{
@@ -14,50 +14,50 @@
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": "What is the issue affecting?"
+				"text": "Who or what is being affected by the problem?"
 			},
 			"accessory": {
 				"type": "static_select",
 				"placeholder": {
 					"type": "plain_text",
-					"text": "Select a topic",
+					"text": "Choose an option",
 					"emoji": true
 				},
 				"options": [
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Marketplace",
+							"text": "A partner",
 							"emoji": true
 						},
-						"value": "value-pr-0"
+						"value": "value-0"
 					},
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Treatwell Pro",
+							"text": "A customer",
 							"emoji": true
 						},
-						"value": "value-pr-1"
+						"value": "value-1"
 					},
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Connect",
+							"text": "An internal tool",
 							"emoji": true
 						},
-						"value": "value-pr-2"
+						"value": "value-2"
 					},
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Internal Tools",
+							"text": ":warning: System Outage :warning:",
 							"emoji": true
 						},
-						"value": "value-pr-3"
+						"value": "value-3"
 					}
 				],
-				"action_id": "problem_report_selected"
+				"action_id": "value0_selected"
 			}
 		}
 	]

@@ -4,30 +4,20 @@
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": "Hey! :wave: While you are waiting for the product support team to get back to you, shall we see if we can solve your query?"
-			}
-		},
-		{
-			"type": "divider"
-		},
-		{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "Pick a topic from the dropdown list"
+				"text": "The marketplace for a Connect user, you say?"
 			},
 			"accessory": {
 				"type": "static_select",
 				"placeholder": {
 					"type": "plain_text",
-					"text": "Select a topic",
+					"text": "Select an option",
 					"emoji": true
 				},
 				"options": [
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Problem Report",
+							"text": "Purchasibilty",
 							"emoji": true
 						},
 						"value": "value-0"
@@ -35,7 +25,7 @@
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "Product Knowledge",
+							"text": "Reviews",
 							"emoji": true
 						},
 						"value": "value-1"
@@ -43,13 +33,29 @@
 					{
 						"text": {
 							"type": "plain_text",
-							"text": "General Query",
+							"text": "Archive a venue page",
 							"emoji": true
 						},
 						"value": "value-2"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Profile",
+							"emoji": true
+						},
+						"value": "value-3"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Other",
+							"emoji": true
+						},
+						"value": "value-4"
 					}
 				],
-				"action_id": "static_select-action"
+				"action_id": "value0_0_0_selected"
 			}
 		}
 	]

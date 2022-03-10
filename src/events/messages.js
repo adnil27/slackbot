@@ -1,36 +1,46 @@
 // require the fs module that's built into Node.js
 import fs from 'fs';
 // get the raw data from the db.json file
-const raw = fs.readFileSync('botRespondsToHelloMessage-topics.json');
+const raw = fs.readFileSync('./botRespondsToHelloMessage/staticSelectAction.json');
 // parse the raw bytes from the file as JSON
-const topics = JSON.parse(raw);
+const staticSelectAction = JSON.parse(raw);
 
 // get the raw data from the db.json file
-const raw1 = fs.readFileSync('botRespondsToHelloMessage-problemReport.json');
+const raw1 = fs.readFileSync('./botRespondsToHelloMessage/value0Selected.json');
 // parse the raw bytes from the file as JSON
-const problemReportSelected = JSON.parse(raw1);
+const value0Selected = JSON.parse(raw1);
 
 // get the raw data from the db.json file
-const raw2 = fs.readFileSync('botRespondsToHelloMessage-pr-1.json');
+const raw2 = fs.readFileSync('./botRespondsToHelloMessage/value00Selected.json');
 // parse the raw bytes from the file as JSON
-const problemReportSelected1 = JSON.parse(raw2);
+const value00Selected = JSON.parse(raw2);
+
+// get the raw data from the db.json file
+const raw3 = fs.readFileSync('./botRespondsToHelloMessage/value0000Selected.json');
+// parse the raw bytes from the file as JSON
+const value000Selected = JSON.parse(raw3);
+
+// get the raw data from the db.json file
+const raw4 = fs.readFileSync('./botRespondsToHelloMessage/value0000Selected.json');
+// parse the raw bytes from the file as JSON
+const value0000Selected = JSON.parse(raw4);
 
 export const botRespondsToHelloMessage = (app) => {
   app.message(/hey|hi|hello/, ({ message, say, context }) => {
-    if (message.channel === 'C034H2X55D4' && message.thread === message.thread_ts) {
+    if (message.channel === 'C034H2X55D4') {
       try {
         app.client.chat.postEphemeral({
           token: context.botToken,
           channel: message.channel,
           user: message.user,
-          attachments: [topics]
+          attachments: [staticSelectAction]
         });
       } catch (e) {
         console.log(`error responding ${e}`);
       }
     }
   });
-  app.action('static_select-action', async ({ ack, action, respond }) => {
+  app.action('static_select_action', async ({ ack, action, respond }) => {
     // Acknowledge the action
     await ack();
     if (action.selected_option.value === 'value-0') {
@@ -38,7 +48,7 @@ export const botRespondsToHelloMessage = (app) => {
         response_type: 'ephemeral',
         replace_original: false,
         user: action.user,
-        attachments: [problemReportSelected]
+        attachments: [value0Selected]
       });
     }
     if (action.selected_option.value === 'value-1') {
@@ -50,23 +60,39 @@ export const botRespondsToHelloMessage = (app) => {
       });
     }
   });
-  app.action('problem_report_selected', async ({ ack, action, respond, client }) => {
+  app.action('value0_selected', async ({ ack, action, respond, client }) => {
     // Acknowledge the action
     await ack();
-    if (action.selected_option.value === 'value-pr-0') {
+    if (action.selected_option.value === 'value-0') {
       await respond({
         response_type: 'ephemeral',
         replace_original: false,
         user: action.user,
-        attachments: [problemReportSelected1]
+        attachments: [value00Selected]
       });
     }
-    if (action.selected_option.value === 'value-pr-1') {
+  });
+  app.action('value0_0_selected', async ({ ack, action, respond, client }) => {
+    // Acknowledge the action
+    await ack();
+    if (action.selected_option.value === 'value-0') {
       await respond({
-        text: 'you selected value 1',
         response_type: 'ephemeral',
-        replace_original: false,
-        user: action.user
+        replace_original: true,
+        user: action.user,
+        attachments: [value000Selected]
+      });
+    }
+  });
+  app.action('value0_0_0_selected', async ({ ack, action, respond, client }) => {
+    // Acknowledge the action
+    await ack();
+    if (action.selected_option.value === 'value-0') {
+      await respond({
+        response_type: 'ephemeral',
+        replace_original: true,
+        user: action.user,
+        attachments: [value0000Selected]
       });
     }
   });
