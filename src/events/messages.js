@@ -33,7 +33,8 @@ export const botRespondsToHelloMessage = (app) => {
           token: context.botToken,
           channel: message.channel,
           user: message.user,
-          attachments: [staticSelectAction]
+          blocks: staticSelectAction.blocks,
+          text: staticSelectAction.text
         });
       } catch (e) {
         console.log(`error responding ${e}`);
