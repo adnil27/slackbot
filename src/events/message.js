@@ -3,35 +3,25 @@ import fs from 'fs';
 import YAML from 'yaml';
 
 const botRespondsToMessage = YAML.parse(fs.readFileSync('./config/messageReplies.yml', 'utf8'));
-Object.keys(botRespondsToMessage).forEach(key => {
+const reply = Object.keys(botRespondsToMessage).forEach(key => {
   console.log(key);
   console.log(botRespondsToMessage[key]);
 });
-const indentedJson = JSON.stringify(botRespondsToMessage, null, 2);
-console.log(indentedJson);
 
 export const botRespondsToAnyMessage = (app) => {
-  app.message('hi', ({ message, context }) => {
-    if (message.channel === 'C034H2X55D4') {
+  app.message('', ({ message, context }) => {
+    if (message.channel === 'C034H2X55D4' && message.text === botRespondsToMessage.useCase.text) {
       try {
         app.client.chat.postEphemeral({
           token: context.botToken,
           channel: message.channel,
           user: message.user,
-          text: botRespondsToMessage.fruit,
-          blocks: [
-            {
-              type: 'section',
-              text: {
-                type: 'mrkdwn',
-                text: botRespondsToMessage.fruit.apple
-              }
-            }
-          ]
+          text: botRespondsToMessage.useCase.reply
         });
       } catch (e) {
         console.log(`error responding ${e}`);
       }
+      console.log(message);
     }
   });
 };
