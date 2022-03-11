@@ -7,8 +7,10 @@ const option1Option1 = JSON.parse(fs.readFileSync('./botRespondsToHelloMessage/o
 
 const option1Option1Option2 = JSON.parse(fs.readFileSync('./botRespondsToHelloMessage/option1-1-2.json'));
 
+const option1Option1Option2Option1 = JSON.parse(fs.readFileSync('./botRespondsToHelloMessage/option1-1-2-1.json'));
+
 export const botRespondsToHelloMessage = (app) => {
-  app.message(/hey|hi|hello/, ({ message, say, context }) => {
+  app.message(/hey|hi|hello/, ({ message, context }) => {
     if (message.channel === 'C034H2X55D4') {
       try {
         app.client.chat.postEphemeral({
@@ -39,13 +41,24 @@ export const botRespondsToHelloMessage = (app) => {
   app.action('option1_button2', async ({ ack, action, respond }) => {
     // Acknowledge the action
     await ack();
-    console.log(option1Option1Option2.text);
     await respond({
       response_type: 'ephemeral',
       replace_original: false,
       user: action.user,
       blocks: option1Option1Option2.blocks,
       text: option1Option1Option2.text
+    });
+  });
+
+  app.action('option1_button1_button1', async ({ ack, action, respond }) => {
+    // Acknowledge the action
+    await ack();
+    await respond({
+      response_type: 'ephemeral',
+      replace_original: false,
+      user: action.user,
+      blocks: option1Option1Option2Option1.blocks,
+      text: option1Option1Option2Option1.text
     });
   });
 };

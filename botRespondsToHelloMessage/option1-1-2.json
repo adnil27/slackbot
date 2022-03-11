@@ -19,7 +19,7 @@
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"text": "Purchasability"
+						"text": "Online Availability"
 					},
 					"value": "option1_button1_button1",
 					"action_id": "option1_button1_button1"

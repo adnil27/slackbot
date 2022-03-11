@@ -166,7 +166,7 @@
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"text": "Reviews"
+						"text": "Booking(s)"
 					},
 					"value": "option1_button_13",
 					"action_id": "option1_button13"
@@ -175,10 +175,19 @@
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"text": "Other..."
+						"text": "Reviews"
 					},
 					"value": "option1_button_14",
 					"action_id": "option1_button14"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Other..."
+					},
+					"value": "option1_button_15",
+					"action_id": "option1_button15"
 				}
 			]
 		},
@@ -202,15 +211,6 @@
 						"type": "plain_text",
 						"text": "Site Outage"
 					},
-					"value": "option1_button_15",
-					"action_id": "option1_button15"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"text": "Iglu"
-					},
 					"value": "option1_button_16",
 					"action_id": "option1_button16"
 				},
@@ -218,7 +218,7 @@
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"text": "Maia"
+						"text": "Iglu"
 					},
 					"value": "option1_button_17",
 					"action_id": "option1_button17"
@@ -227,7 +227,7 @@
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"text": "Active Admin"
+						"text": "Maia"
 					},
 					"value": "option1_button_18",
 					"action_id": "option1_button18"
@@ -236,10 +236,19 @@
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"text": "Other..."
+						"text": "Active Admin"
 					},
 					"value": "option1_button_19",
 					"action_id": "option1_button19"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Other..."
+					},
+					"value": "option1_button_20",
+					"action_id": "option1_button20"
 				}
 			]
 		},
