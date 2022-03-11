@@ -26,6 +26,10 @@ import {
   showUsefulLinks
 } from './events/commands.js';
 
+import {
+  botRespondsToAnyMessage
+} from './events/message.js';
+
 // slack deps
 import SlackBolt from '@slack/bolt';
 dotenv.config();
@@ -55,6 +59,8 @@ const app = new App({
   showHelpCommands(app);
   showTroubleShootingGuide(app);
   showUsefulLinks(app);
+  // new code
+  botRespondsToAnyMessage(app);
 
   const port = 3000;
   // Start your app

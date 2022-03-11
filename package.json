@@ -21,7 +21,9 @@
   "homepage": "https://github.com/michellephant/slackbot#readme",
   "dependencies": {
     "@slack/bolt": "^3.10.0",
-    "node-json-db": "^1.4.1"
+    "js-yaml": "^4.1.0",
+    "node-json-db": "^1.4.1",
+    "yaml": "^1.10.2"
   },
   "devDependencies": {
     "dotenv": "^16.0.0",

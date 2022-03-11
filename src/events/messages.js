@@ -10,7 +10,7 @@ const option1Option1Option2 = JSON.parse(fs.readFileSync('./botRespondsToHelloMe
 const option1Option1Option2Option1 = JSON.parse(fs.readFileSync('./botRespondsToHelloMessage/option1-1-2-1.json'));
 
 export const botRespondsToHelloMessage = (app) => {
-  app.message(/hey|hi|hello/, ({ message, context }) => {
+  app.message(/help/, ({ message, context }) => {
     if (message.channel === 'C034H2X55D4') {
       try {
         app.client.chat.postEphemeral({
