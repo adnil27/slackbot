@@ -1,6 +1,10 @@
-useCase: {
-  apple: "apple",
-  banana: "banana",
-  text: "grapes",
-  reply: "mmm lemons"
+{
+  useCase: {
+    text: "mrkdwn",
+    reply: "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
+  },
+    useCase2: {
+    text: "mrkdwn2",
+    reply: "This is a mrkdwn section block2 :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
+  }
 }
