@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon -e js,yml,yaml src/index.js",
     "lint": "npx semistandard --verbose | snazzy"
   },
   "type": "module",

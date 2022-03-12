@@ -17,7 +17,7 @@ import {
 import {
   botRespondsToHelloMessage,
   botRespondsToSalesforceMessage
-} from './events/messages.js';
+} from './events/messages.back.js';
 
 import {
   showChannelGuidelines,
@@ -26,9 +26,13 @@ import {
   showUsefulLinks
 } from './events/commands.js';
 
+// import {
+//   botRespondsToAnyMessage
+// } from './events/message.js';
+
 import {
   botRespondsToAnyMessage
-} from './events/message.js';
+} from './controller/messages.js';
 
 // slack deps
 import SlackBolt from '@slack/bolt';
@@ -43,22 +47,22 @@ const app = new App({
 });
 
 (async () => {
-  // Reactions
-  queryResolvedByUser(app);
-  queryReopenedByUser(app);
-  queryNotEnoughInfo(app);
-  queryNotEnoughInfoRemoved(app);
-  // members
-  newMemberJoinedChannel(app);
-  // app (bot) mentions
-  memberMentionsBot(app);
-  botRespondsToHelloMessage(app);
-  botRespondsToSalesforceMessage(app);
-  // slash commands
-  showChannelGuidelines(app);
-  showHelpCommands(app);
-  showTroubleShootingGuide(app);
-  showUsefulLinks(app);
+  // // Reactions
+  // queryResolvedByUser(app);
+  // queryReopenedByUser(app);
+  // queryNotEnoughInfo(app);
+  // queryNotEnoughInfoRemoved(app);
+  // // members
+  // newMemberJoinedChannel(app);
+  // // app (bot) mentions
+  // memberMentionsBot(app);
+  // botRespondsToHelloMessage(app);
+  // botRespondsToSalesforceMessage(app);
+  // // slash commands
+  // showChannelGuidelines(app);
+  // showHelpCommands(app);
+  // showTroubleShootingGuide(app);
+  // showUsefulLinks(app);
   // new code
   botRespondsToAnyMessage(app);
 

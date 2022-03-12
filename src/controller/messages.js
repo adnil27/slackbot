@@ -1,8 +1,9 @@
 import fs from 'fs';
 // require the yaml module npm i yaml
 import YAML from 'yaml';
+import { logger } from '../utils/logger.js';
 
-const botRespondsToMessage = YAML.parse(fs.readFileSync('./config/messageReplies.yml', 'utf8'));
+const botRespondsToMessage = YAML.parse(fs.readFileSync('./config/messages.yml', 'utf8'));
 
 const postReply = (app, message, context, reply) => {
   try {
@@ -21,22 +22,22 @@ export const botRespondsToAnyMessage = (app) => {
   for (const res of botRespondsToMessage.replies) {
     const watchFor = res.message;
     const reply = res.reply;
-    let ignoreMessage = false;
-    console.log('test');
-    console.log(res.ignoreIfContains);
     app.message(watchFor, ({ message, context }) => {
+      let ignoreMessage = false;
       if (message.channel !== 'C034H2X55D4') return;
       if (res.ignoreIfContains) {
         for (const ignore of res.ignoreIfContains) {
-          console.log(ignore);
           const regex = new RegExp(ignore, 'i');
-          console.log(regex);
           if (regex.test(message.text)) {
             ignoreMessage = true;
           }
         }
       }
-      if (!ignoreMessage) postReply(app, message, context, reply);
+      if (!ignoreMessage) {
+        postReply(app, message, context, reply);
+      } else {
+        logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
+      }
     });
   }
 };
