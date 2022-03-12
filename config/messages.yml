@@ -1,5 +1,10 @@
-# Single value blocks such as type: divider do not need a name.
-
+# Example full config
+# - name: name your config so other team mebers know what it does.
+#   message: (required) add in a message for slack to watch
+#   reply: (required) the bot will reply to this message
+#   onlyChannel: #(required) add a channel id here i.e C034H2X55D4
+#   ignoreIfContains: # (optional) add regex in here to check the message for that text if its true the bot will not reply
+#     - tools.treatwell.net\/iglu
 name: message
 
 replies:
@@ -19,5 +24,3 @@ replies:
     onlyChannel: C034H2X55D4
     ignoreIfContains:
       - tools.treatwell.net\/iglu
-      - tools.treatwell.net\/link
-      - tools.treatwell.net\/erber

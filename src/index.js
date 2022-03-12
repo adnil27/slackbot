@@ -31,7 +31,7 @@ import {
 // } from './events/message.js';
 
 import {
-  botRespondsToAnyMessage
+  messageController
 } from './controller/messages.js';
 
 // slack deps
@@ -64,7 +64,7 @@ const app = new App({
   // showTroubleShootingGuide(app);
   // showUsefulLinks(app);
   // new code
-  botRespondsToAnyMessage(app);
+  messageController(app);
 
   const port = 3000;
   // Start your app

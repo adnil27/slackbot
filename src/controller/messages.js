@@ -3,7 +3,7 @@ import fs from 'fs';
 import YAML from 'yaml';
 import { logger } from '../utils/logger.js';
 
-const botRespondsToMessage = YAML.parse(fs.readFileSync('./config/messages.yml', 'utf8'));
+const messageConfig = YAML.parse(fs.readFileSync('./config/messages.yml', 'utf8'));
 
 const postReply = (app, message, context, reply) => {
   try {
@@ -18,8 +18,8 @@ const postReply = (app, message, context, reply) => {
   }
 };
 
-export const botRespondsToAnyMessage = (app) => {
-  for (const res of botRespondsToMessage.replies) {
+export const messageController = (app) => {
+  for (const res of messageConfig.replies) {
     app.message(res.message, ({ message, context }) => {
       let ignoreMessage = false;
       if (message.channel !== res.onlyChannel) return;
