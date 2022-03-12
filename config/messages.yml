@@ -5,15 +5,18 @@ name: message
 replies:
   - name: Common trouble shooting checks
     message: hello
+    onlyChannel: C034H2X55D4
     reply: poop sticks is my fav game sport
 
   - name: Common trouble shooting checks 2
     message: hello my name is
+    onlyChannel: C034H2X55D4
     reply: poop sticks is my fav game
 
   - name: Saleforce link without iglu link
     message: treatwell.lightning.force.com
     reply: add an iglu link
+    onlyChannel: C034H2X55D4
     ignoreIfContains:
       - tools.treatwell.net\/iglu
       - tools.treatwell.net\/link
