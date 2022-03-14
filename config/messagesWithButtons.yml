@@ -1,18 +1,22 @@
 # Example full config
-# - name: name your config so other team mebers know what it does.
+# - name: name your config so other team members know what it does.
 #   message: (required) add in a message for slack to watch
-#   reply: (required) the bot will reply to this message
 #   onlyChannel: #(required) add a channel id here i.e C034H2X55D4
+#   introduction: reply with introduction text
+#   solution: reply with solution
+#   question: ask if resolved
 #   ignoreIfContains: # (optional) add regex in here to check the message for that text if its true the bot will not reply
 #     - tools.treatwell.net\/iglu
 name: message
 
 replies:
-  - name: Common trouble shooting checks
-    message: hello
+  - name: Common trouble shooting checks  
+    message: 'message'
     onlyChannel: C034H2X55D4
-    reply: "Hello to you too! :wave:"
-    
+    introduction: "Introduction"
+    solution: ":one:\n\n:two:\n\n:three:"
+    question: "Did it work?"
+
   - name: Saleforce link without iglu link
     message: treatwell.lightning.force.com
     reply: "Hey! It looks like you might have forgotten the Iglu link. :see_no_evil:"
