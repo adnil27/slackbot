@@ -11,8 +11,8 @@ name: message
 
 replies:
   - name: Common trouble shooting checks  
-    message: 'message'
-    keyword: text
+    keyword: 'text'
+    keyword1: 'texty'
     onlyChannel: C034H2X55D4
     introduction: "Introduction"
     solution: ":one:\n\n:two:\n\n:three:"

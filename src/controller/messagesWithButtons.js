@@ -79,9 +79,9 @@ const postReply = (app, message, context, introduction, solution, question) => {
 
 export const messageWithButtonsController = (app) => {
   for (const res of messageConfig.replies) {
-    app.message(res.message, ({ message, context }) => {
+    app.message('', ({ message, context }) => {
       let ignoreMessage = false;
-      if (!message.text.includes(res.keyword)) return;
+      if (!message.text.includes(res.keyword || res.keyword1)) return;
       if (message.channel !== res.onlyChannel) return;
       console.log(message.text);
       if (res.ignoreIfContains) {
@@ -91,7 +91,7 @@ export const messageWithButtonsController = (app) => {
         }
       }
       !ignoreMessage
-        ? postReply(app, message, context, res.introduction, res.solution, res.question, res.keyword)
+        ? postReply(app, message, context, res.introduction, res.solution, res.question)
         : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
     });
   }
