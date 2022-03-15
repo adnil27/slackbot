@@ -13,6 +13,7 @@ replies:
   - name: Common trouble shooting checks  
     message: 'RWG'
     keyword: 'switch on'
+    kwyword1: 'turn on'
     onlyChannel: C034H2X55D4
     introduction: "Introduction"
     solution: ":one:\n\n:two:\n\n:three:"
