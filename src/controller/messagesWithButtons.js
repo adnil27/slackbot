@@ -79,11 +79,11 @@ const postReply = (app, message, context, introduction, solution, question) => {
 
 export const messageWithButtonsController = (app) => {
   for (const res of messageConfig.replies) {
-    app.message('', ({ message, context }) => {
+    const caseCheckMessage = new RegExp(res.message + ' ' + res.keyword, 'i');
+    console.log(caseCheckMessage);
+    app.message(caseCheckMessage, ({ message, context }) => {
       let ignoreMessage = false;
-      if (!message.text.includes(res.keyword || res.keyword1)) return;
       if (message.channel !== res.onlyChannel) return;
-      console.log(message.text);
       if (res.ignoreIfContains) {
         for (const ignore of res.ignoreIfContains) {
           const regex = new RegExp(ignore, 'i');

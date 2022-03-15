@@ -13,6 +13,11 @@ replies:
     onlyChannel: C034H2X55D4
     reply: "Hello to you too! :wave:"
     
+  - name: Common trouble shooting checks2
+    message: hi
+    onlyChannel: C034H2X55D4
+    reply: "Hello to you too! :wave:"
+    
   - name: Saleforce link without iglu link
     message: treatwell.lightning.force.com
     reply: "Hey! It looks like you might have forgotten the Iglu link. :see_no_evil:"

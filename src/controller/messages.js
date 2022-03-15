@@ -20,7 +20,8 @@ const postReply = (app, message, context, reply) => {
 
 export const messageController = (app) => {
   for (const res of messageConfig.replies) {
-    app.message(res.message, ({ message, context }) => {
+    const caseCheck = new RegExp(res.message, 'i');
+    app.message(caseCheck, ({ message, context }) => {
       let ignoreMessage = false;
       if (message.channel !== res.onlyChannel) return;
       if (res.ignoreIfContains) {

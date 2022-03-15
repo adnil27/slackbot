@@ -11,16 +11,11 @@ name: message
 
 replies:
   - name: Common trouble shooting checks  
-    keyword: 'text'
-    keyword1: 'texty'
+    message: 'RWG'
+    keyword: 'switch on'
     onlyChannel: C034H2X55D4
     introduction: "Introduction"
     solution: ":one:\n\n:two:\n\n:three:"
-    question: "Did it work?"
-
-  - name: Saleforce link without iglu link
-    message: treatwell.lightning.force.com
-    reply: "Hey! It looks like you might have forgotten the Iglu link. :see_no_evil:"
-    onlyChannel: C034H2X55D4
+    question: "Did I understand corectly?"
     ignoreIfContains:
-      - tools.treatwell.net\/iglu
+      - wants to know
