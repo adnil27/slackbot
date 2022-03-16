@@ -38,6 +38,10 @@ import {
   messageWithButtonsController
 } from './controller/messagesWithButtons.js';
 
+import {
+  botAddsReaction
+} from './controller/reactions.js';
+
 // slack deps
 import SlackBolt from '@slack/bolt';
 dotenv.config();
@@ -70,6 +74,7 @@ const app = new App({
   // new code
   messageController(app);
   messageWithButtonsController(app);
+  botAddsReaction(app);
 
   const port = 3000;
   // Start your app
