@@ -9,9 +9,8 @@ export const botAddsReaction = (app) => {
       });
       app.client.reactions.add({
         name: 'white_check_mark',
-        timestamp: body.message.ts,
-        channel: body.channel.id,
-        thread_ts: body.message.ts
+        timestamp: 1647460665.747449,
+        channel: body.channel.id
       });
     } catch (error) {
       console.log('err');
