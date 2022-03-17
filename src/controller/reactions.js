@@ -1,5 +1,5 @@
 export const botAddsReaction = (app) => {
-  app.action('actionId-0', async ({ body, client, ack, action, respond, message }) => {
+  app.action('actionId-00', async ({ body, client, ack, action, respond, message }) => {
     try {
       await ack();
       await respond({
@@ -9,7 +9,7 @@ export const botAddsReaction = (app) => {
       });
       app.client.reactions.add({
         name: 'white_check_mark',
-        timestamp: 1647460665.747449,
+        timestamp: 1647505473.725879,
         channel: body.channel.id
       });
     } catch (error) {

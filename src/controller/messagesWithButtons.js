@@ -78,11 +78,37 @@ const postReply = (app, message, context, introduction, solution, question) => {
   }
 };
 
+const respondToYesClick = (app, message, ack, respond, action, body) => {
+  try {
+    respond({
+      replace_original: true,
+      user: action.user,
+      text: 'fantastic :tada:'
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const respondToNoClick = (app, message, ack, respond, action, body) => {
+  try {
+    respond({
+      replace_original: true,
+      user: action.user,
+      text: 'Maybe next time'
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const messageWithButtonsController = (app) => {
   for (const res of messageConfig.replies) {
     const caseCheckMessage = new RegExp(res.message, 'i');
+
     app.message(caseCheckMessage, ({ message, context }) => {
       console.log(message);
+      const conversationId = message.event_ts;
       let ignoreMessage = false;
       if (!message.text.match(res.keyword)) return;
       if (message.channel !== res.onlyChannel) return;
@@ -95,6 +121,21 @@ export const messageWithButtonsController = (app) => {
       !ignoreMessage
         ? postReply(app, message, context, res.introduction, res.solution, res.question)
         : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
+
+      app.action('actionId-0', async ({ body, ack, respond, message }) => {
+        try {
+          await ack();
+          respondToYesClick(app, message, ack, respond, body);
+          app.client.reactions.add({
+            name: 'white_check_mark',
+            timestamp: conversationId,
+            channel: body.channel.id
+          });
+        } catch (error) {
+          console.log('err');
+          console.error(error);
+        }
+      });
     });
   }
 };
