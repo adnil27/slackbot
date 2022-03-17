@@ -18,5 +18,9 @@ replies:
     introduction: "Introduction"
     solution: ":one:\n\n:two:\n\n:three:"
     question: "Did I understand corectly?"
+    actionId: actionId0
+    actionIdReply: 'fantastic :tada:'
+    actionId1: actionId1
+    actionId1Reply: 'Next time'
     ignoreIfContains:
       - wants to know

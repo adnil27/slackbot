@@ -5,7 +5,7 @@ import { logger } from '../utils/logger.js';
 
 const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.yml', 'utf8'));
 
-const postReply = (app, message, context, introduction, solution, question) => {
+const postReply = (app, message, context, introduction, solution, question, actionId, actionId1) => {
   try {
     app.client.chat.postMessage({
       token: context.botToken,
@@ -56,7 +56,7 @@ const postReply = (app, message, context, introduction, solution, question) => {
                 emoji: true
               },
               value: 'click_me_123',
-              action_id: 'actionId-0'
+              action_id: actionId
             },
             {
               style: 'danger',
@@ -67,35 +67,11 @@ const postReply = (app, message, context, introduction, solution, question) => {
                 emoji: true
               },
               value: 'click_me_123',
-              action_id: 'actionId-1'
+              action_id: actionId1
             }
           ]
         }
       ]
-    });
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-const respondToYesClick = (app, message, ack, respond, action, body) => {
-  try {
-    respond({
-      replace_original: true,
-      user: action.user,
-      text: 'fantastic :tada:'
-    });
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-const respondToNoClick = (app, message, ack, respond, action, body) => {
-  try {
-    respond({
-      replace_original: true,
-      user: action.user,
-      text: 'Maybe next time'
     });
   } catch (e) {
     console.log(e);
@@ -108,7 +84,6 @@ export const messageWithButtonsController = (app) => {
 
     app.message(caseCheckMessage, ({ message, context }) => {
       console.log(message);
-      const conversationId = message.event_ts;
       let ignoreMessage = false;
       if (!message.text.match(res.keyword)) return;
       if (message.channel !== res.onlyChannel) return;
@@ -119,23 +94,8 @@ export const messageWithButtonsController = (app) => {
         }
       }
       !ignoreMessage
-        ? postReply(app, message, context, res.introduction, res.solution, res.question)
+        ? postReply(app, message, context, res.introduction, res.solution, res.question, res.actionId, res.actionId1)
         : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
-
-      app.action('actionId-0', async ({ body, ack, respond, message }) => {
-        try {
-          await ack();
-          respondToYesClick(app, message, ack, respond, body);
-          app.client.reactions.add({
-            name: 'white_check_mark',
-            timestamp: conversationId,
-            channel: body.channel.id
-          });
-        } catch (error) {
-          console.log('err');
-          console.error(error);
-        }
-      });
     });
   }
 };
