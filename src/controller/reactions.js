@@ -9,11 +9,6 @@ export const botAddsReaction = (app) => {
     app.action(res.actionId, ({ ack, action, body, respond, message }) => {
       try {
         ack();
-        app.client.reactions.add({
-          name: res.reaction,
-          timestamp: body.message.ts,
-          channel: 'C034H2X55D4'
-        });
         respond({
           replace_original: true,
           user: action.user,
@@ -25,4 +20,27 @@ export const botAddsReaction = (app) => {
       }
     });
   }
+  app.event('message', async ({ event, client }) => {
+    try {
+      const result = await app.client.conversations.history({
+        channel: event.channel,
+        latest: event.ts,
+        inclusive: true,
+        limit: 1
+      });
+
+      const message = result.messages[0];
+      console.log('message:', message);
+
+      const messageId = message.ts;
+      app.client.reactions.add({
+        name: 'white_check_mark',
+        timestamp: messageId,
+        channel: 'C034H2X55D4'
+      });
+      console.log(messageId);
+    } catch (e) {
+      console.log('error', e);
+    }
+  });
 };

@@ -96,7 +96,6 @@ export const messageWithButtonsController = (app) => {
       !ignoreMessage
         ? postReply(app, message, context, res.introduction, res.solution, res.question, res.actionId, res.actionId1)
         : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
-      console.log(message);
     });
   }
 };
