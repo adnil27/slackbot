@@ -22,5 +22,7 @@ replies:
     actionIdReply: 'fantastic :tada:'
     actionId1: actionId1
     actionId1Reply: 'Next time'
+    reaction: white_check_mark
+    reaction2: robot_face
     ignoreIfContains:
       - wants to know

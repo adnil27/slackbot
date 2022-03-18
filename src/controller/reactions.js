@@ -6,9 +6,14 @@ const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.y
 
 export const botAddsReaction = (app) => {
   for (const res of messageConfig.replies) {
-    app.action(res.actionId, ({ ack, action, respond, body }) => {
+    app.action(res.actionId, ({ ack, action, body, respond, message }) => {
       try {
         ack();
+        app.client.reactions.add({
+          name: res.reaction,
+          timestamp: body.message.ts,
+          channel: 'C034H2X55D4'
+        });
         respond({
           replace_original: true,
           user: action.user,
@@ -18,21 +23,6 @@ export const botAddsReaction = (app) => {
         console.log('err');
         console.error(error);
       }
-      console.log(action);
-    });
-    app.action(res.actionId1, ({ ack, action, respond }) => {
-      try {
-        ack();
-        respond({
-          replace_original: true,
-          user: action.user,
-          text: res.actionId1Reply
-        });
-      } catch (error) {
-        console.log('err');
-        console.error(error);
-      }
-      console.log(action);
     });
   }
 };

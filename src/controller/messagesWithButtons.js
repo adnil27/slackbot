@@ -1,9 +1,8 @@
 import fs from 'fs';
 // require the yaml module npm i yaml
 import YAML from 'yaml';
-import { brotliDecompressSync } from 'zlib';
+
 import { logger } from '../utils/logger.js';
-import { botAddsReaction } from './reactions.js';
 
 const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.yml', 'utf8'));
 
@@ -85,8 +84,6 @@ export const messageWithButtonsController = (app) => {
     const caseCheckMessage = new RegExp(res.message, 'i');
 
     app.message(caseCheckMessage, ({ message, context }) => {
-      console.log(message);
-      const conversationId = message.event_ts;
       let ignoreMessage = false;
       if (!message.text.match(res.keyword)) return;
       if (message.channel !== res.onlyChannel) return;
@@ -99,14 +96,7 @@ export const messageWithButtonsController = (app) => {
       !ignoreMessage
         ? postReply(app, message, context, res.introduction, res.solution, res.question, res.actionId, res.actionId1)
         : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
-      app.action(res.actionId, ({ ack, action, body, respond, message }) => {
-        ack();
-        app.client.reactions.add({
-          name: 'white_check_mark',
-          timestamp: conversationId,
-          channel: body.channel.id
-        });
-      });
+      console.log(message);
     });
   }
 };
