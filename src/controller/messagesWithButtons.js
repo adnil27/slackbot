@@ -54,12 +54,12 @@ const postReply = (app, message, context, introduction, solution, question, acti
 
 export const messageWithButtonsController = (app) => {
   for (const res of messageConfig.replies) {
-    const caseCheckMessage = '';
+    const caseCheckMessage = new RegExp(res.message, 'i');
+    const caseCheckAction = new RegExp(res.action, 'i');
 
     app.message(caseCheckMessage, ({ message, context }) => {
-      const result = caseCheckMessage.toLowerCase();
-      if (!result === res.message) return;
       let ignoreMessage = false;
+      if (!message.text.match(caseCheckAction)) return;
       if (message.channel !== res.onlyChannel) return;
       if (res.ignoreIfContains) {
         for (const ignore of res.ignoreIfContains) {

@@ -12,7 +12,7 @@ name: message
 replies:
   - name: Common trouble shooting checks  
     message: rwg
-    keyword: 'switch on'
+    action: switch
     keyword1: turn on
     onlyChannel: C034H2X55D4
     introduction: "Introduction"
