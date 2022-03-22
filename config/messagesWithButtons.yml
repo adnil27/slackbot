@@ -12,10 +12,19 @@ name: message
 replies:
   - name: Common trouble shooting checks  
     message: rwg
-    action: switch
-    keyword1: turn on
+    action: (switch on|turn on|enable)
     onlyChannel: C034H2X55D4
     introduction: "Introduction"
+    solution: ":one:\n\n:two:\n\n:three:"
+    question: "If your query was resolved please add a :white_check_mark: to your post."
+    ignoreIfContains:
+      - wants to know
+
+  - name: Common trouble shooting checks2  
+    message: rwg
+    action: (switch off|turn off|disable)
+    onlyChannel: C034H2X55D4
+    introduction: "Introduction2"
     solution: ":one:\n\n:two:\n\n:three:"
     question: "If your query was resolved please add a :white_check_mark: to your post."
     ignoreIfContains:
