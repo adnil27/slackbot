@@ -17,12 +17,6 @@ replies:
     onlyChannel: C034H2X55D4
     introduction: "Introduction"
     solution: ":one:\n\n:two:\n\n:three:"
-    question: "Did I understand corectly?"
-    actionId: actionId0
-    actionIdReply: 'fantastic :tada:'
-    actionId1: actionId1
-    actionId1Reply: 'Next time'
-    reaction: white_check_mark
-    reaction2: robot_face
+    question: "If your query was resolved please add a :white_check_mark: to your post."
     ignoreIfContains:
       - wants to know

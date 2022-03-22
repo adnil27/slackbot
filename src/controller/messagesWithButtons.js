@@ -44,33 +44,6 @@ const postReply = (app, message, context, introduction, solution, question, acti
         },
         {
           type: 'divider'
-        },
-        {
-          type: 'actions',
-          elements: [
-            {
-              style: 'primary',
-              type: 'button',
-              text: {
-                type: 'plain_text',
-                text: 'Yes',
-                emoji: true
-              },
-              value: 'click_me_123',
-              action_id: actionId
-            },
-            {
-              style: 'danger',
-              type: 'button',
-              text: {
-                type: 'plain_text',
-                text: 'No',
-                emoji: true
-              },
-              value: 'click_me_123',
-              action_id: actionId1
-            }
-          ]
         }
       ]
     });
