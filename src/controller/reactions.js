@@ -3,7 +3,6 @@ export const botAddsReaction = (app) => {
     if (event.user === 'U035UDUM0H0') return;
     if (event.reaction === 'white_check_mark') {
       console.log('that worked');
-      console.log(event);
     }
   });
 };
