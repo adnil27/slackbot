@@ -10,7 +10,7 @@
 name: message
 
 replies:
-  - name: Common trouble shooting checks  
+  - name: RWG switch on 
     message: rwg
     action: (switch on|turn on|enable)
     onlyChannel: C034H2X55D4
@@ -20,11 +20,11 @@ replies:
     ignoreIfContains:
       - wants to know
 
-  - name: Common trouble shooting checks2  
+  - name: RWG switch off  
     message: rwg
     action: (switch off|turn off|disable)
     onlyChannel: C034H2X55D4
-    introduction: "Introduction2"
+    introduction: "Introduction"
     solution: ":one:\n\n:two:\n\n:three:"
     question: "If your query was resolved please add a :white_check_mark: to your post."
     ignoreIfContains:
