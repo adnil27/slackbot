@@ -15,7 +15,7 @@ export const botAddsReaction = (app) => {
           channel: event.item.channel,
           user: event.user,
           thread_ts: event.item.ts,
-          text: res.reactionAddedReply + `<@${event.user}>`
+          text: res.reactionAddedGreeting + `<@${event.user}>` + res.reactionAddedReply
         });
         app.client.reactions.add({
           name: res.reaction1ToAdd,
@@ -31,22 +31,22 @@ export const botAddsReaction = (app) => {
     });
     app.event('reaction_removed', async ({ event, context, body, message }) => {
       if (event.user === res.psTeamUsers) return;
-      if (event.reaction === res.reactionRemoved && event.item.channel === res.onlyChannel) {
+      if (event.reaction === res.reactionAdded && event.item.channel === res.onlyChannel) {
         console.log(event);
         app.client.chat.postEphemeral({
           token: context.botToken,
           channel: event.item.channel,
           user: event.user,
           thread_ts: event.item.ts,
-          text: res.reactionRemovedReply + `<@${event.user}>`
+          text: res.reactionAddedGreeting + `<@${event.user}>` + res.reactionRemovedReply
         });
         app.client.reactions.remove({
-          name: res.reaction1ToRemove,
+          name: res.reaction1ToAdd,
           timestamp: event.item.ts,
           channel: event.item.channel
         });
         app.client.reactions.remove({
-          name: res.reaction2ToRemove,
+          name: res.reaction2ToAdd,
           timestamp: event.item.ts,
           channel: event.item.channel
         });

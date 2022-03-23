@@ -6,7 +6,7 @@ import { logger } from '../utils/logger.js';
 
 const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.yml', 'utf8'));
 
-const postReply = (app, message, context, introduction, solution, question) => {
+const postReply = (app, message, context, introduction, solution, question, greeting, extraInformation) => {
   try {
     app.client.chat.postMessage({
       token: context.botToken,
@@ -22,14 +22,27 @@ const postReply = (app, message, context, introduction, solution, question) => {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: introduction + `<@${message.user}>`
+            text: greeting + `<@${message.user}>` + introduction
           }
+        },
+        {
+          type: 'divider'
         },
         {
           type: 'section',
           text: {
             type: 'mrkdwn',
             text: solution
+          }
+        },
+        {
+          type: 'divider'
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: extraInformation
           }
         },
         {
@@ -68,7 +81,7 @@ export const messageWithButtonsController = (app) => {
         }
       }
       !ignoreMessage
-        ? postReply(app, message, context, res.introduction, res.solution, res.question, res.actionId, res.actionId1)
+        ? postReply(app, message, context, res.introduction, res.solution, res.question, res.greeting, res.extraInformation)
         : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
     });
   }
