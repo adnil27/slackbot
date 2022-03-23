@@ -6,7 +6,7 @@ import { logger } from '../utils/logger.js';
 
 const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.yml', 'utf8'));
 
-const postReply = (app, message, context, introduction, solution, question, actionId, actionId1) => {
+const postReply = (app, message, context, introduction, solution, question) => {
   try {
     app.client.chat.postMessage({
       token: context.botToken,
@@ -22,7 +22,7 @@ const postReply = (app, message, context, introduction, solution, question, acti
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: introduction
+            text: introduction + `<@${message.user}>`
           }
         },
         {

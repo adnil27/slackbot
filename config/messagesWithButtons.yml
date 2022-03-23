@@ -14,18 +14,28 @@ replies:
     message: rwg
     action: (switch on|turn on|enable)
     onlyChannel: C034H2X55D4
-    introduction: "Introduction"
+    introduction: "Hey :wave: "
     solution: ":one:\n\n:two:\n\n:three:"
     question: "If your query was resolved please add a :white_check_mark: to your post."
     ignoreIfContains:
       - wants to know
+    psTeamUsers: U035UDUM0H0
+    reactionAdded: white_check_mark
+    reaction1ToAdd: robot_face
+    reaction2ToAdd: snowflake
+    reactionAddedReply: "Fantastic! :tada:\n\n We have marked your request as complete.\n\n"
 
   - name: RWG switch off  
     message: rwg
     action: (switch off|turn off|disable)
     onlyChannel: C034H2X55D4
-    introduction: "Introduction"
+    introduction: "Hello :wave: "
     solution: ":one:\n\n:two:\n\n:three:"
     question: "If your query was resolved please add a :white_check_mark: to your post."
     ignoreIfContains:
       - wants to know
+    psTeamUsers: U035UDUM0H0
+    reactionRemoved: white_check_mark
+    reaction1ToRemove: robot_face
+    reaction2ToRemove: snowflake
+    reactionRemovedReply: "We have reopened your request. Sit tight and a member of the team will be with you shortly.\n\n"
