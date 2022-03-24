@@ -6,7 +6,7 @@ import { logger } from '../utils/logger.js';
 
 const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.yml', 'utf8'));
 
-const postReply = (app, message, context, introduction, solution, question, greeting, extraInformation) => {
+const postReply = (app, message, context, introduction, solution, greeting, extraInformation, isSolved) => {
   try {
     app.client.chat.postMessage({
       token: context.botToken,
@@ -52,7 +52,7 @@ const postReply = (app, message, context, introduction, solution, question, gree
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: question
+            text: isSolved
           }
         },
         {
@@ -65,12 +65,13 @@ const postReply = (app, message, context, introduction, solution, question, gree
   }
 };
 
-export const messageWithButtonsController = (app) => {
+export const messageWithReactions = (app) => {
   for (const res of messageConfig.replies) {
     const caseCheckMessage = new RegExp(res.message, 'i');
     const caseCheckAction = new RegExp(res.action, 'i');
 
     app.message(caseCheckMessage, ({ message, context }) => {
+      console.log(message);
       let ignoreMessage = false;
       if (!message.text.match(caseCheckAction)) return;
       if (message.channel !== res.onlyChannel) return;
@@ -81,7 +82,7 @@ export const messageWithButtonsController = (app) => {
         }
       }
       !ignoreMessage
-        ? postReply(app, message, context, res.introduction, res.solution, res.question, res.greeting, res.extraInformation)
+        ? postReply(app, message, context, res.introduction, res.solution, res.greeting, res.extraInformation, res.isSolved)
         : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
     });
   }

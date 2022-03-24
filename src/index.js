@@ -35,15 +35,12 @@ import {
 } from './controller/messages.js';
 
 import {
-  messageWithButtonsController
-} from './controller/messagesWithButtons.js';
-
-import {
-  botAddsReaction
-} from './controller/reactions.js';
+  messageWithReactions
+} from './controller/messagesWithReactions.js';
 
 // slack deps
 import SlackBolt from '@slack/bolt';
+import { botAddsReaction } from './controller/botAddsReactions.js';
 dotenv.config();
 const { App } = SlackBolt;
 
@@ -73,7 +70,7 @@ const app = new App({
   // showUsefulLinks(app);
   // new code
   messageController(app);
-  messageWithButtonsController(app);
+  messageWithReactions(app);
   botAddsReaction(app);
 
   const port = 3000;
