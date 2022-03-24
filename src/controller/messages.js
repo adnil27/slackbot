@@ -7,14 +7,14 @@ const messageConfig = YAML.parse(fs.readFileSync('./config/messages.yml', 'utf8'
 
 const postReply = (app, message, context, reply) => {
   try {
-    app.client.chat.postEphemeral({
+    app.client.chat.postMessage({
       token: context.botToken,
       channel: message.channel,
       user: message.user,
+      thread_ts: message.ts,
       text: reply
     });
   } catch (e) {
-    console.log(e);
   }
 };
 

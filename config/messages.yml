@@ -8,13 +8,8 @@
 name: message
 
 replies:
-  - name: Common trouble shooting checks
-    message: hello
-    onlyChannel: C034H2X55D4
-    reply: "Hello to you too! :wave:"
-    
-  - name: Common trouble shooting checks2
-    message: hi
+  - name: Hello Message
+    message: hello bot
     onlyChannel: C034H2X55D4
     reply: "Hello to you too! :wave:"
     
