@@ -4,13 +4,12 @@ import YAML from 'yaml';
 
 const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.yml', 'utf8'));
 
-export const botAddsReactions = (app) => {
+export const botRemovesReactions = (app) => {
   for (const res of messageConfig.replies) {
     const caseCheckMessage = new RegExp(res.message, 'i');
     const caseCheckAction = new RegExp(res.action, 'i');
 
-    app.event('reaction_added', async ({ event, context }) => {
-      console.log(event);
+    app.event('reaction_removed', async ({ event, context }) => {
       const messageID = event.item.ts;
       const channelID = event.item.channel;
 
@@ -33,14 +32,14 @@ export const botAddsReactions = (app) => {
           channel: event.item.channel,
           user: event.user,
           thread_ts: event.item.ts,
-          text: res.reactionAddedGreeting + `<@${event.user}>` + res.reactionAddedReply
+          text: res.reactionRemovedGreeting + `<@${event.user}>` + res.reactionRemovedReply
         });
-        app.client.reactions.add({
+        app.client.reactions.remove({
           name: res.reaction1ToAdd,
           timestamp: event.item.ts,
           channel: event.item.channel
         });
-        app.client.reactions.add({
+        app.client.reactions.remove({
           name: res.reaction2ToAdd,
           timestamp: event.item.ts,
           channel: event.item.channel

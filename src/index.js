@@ -7,6 +7,8 @@ import { messageWithReactions } from './controller/messagesWithReactions.js';
 
 import { botAddsReactions } from './controller/botAddsReactions.js';
 
+import { botRemovesReactions } from './controller/botRemovesReactions.js';
+
 // slack deps
 import SlackBolt from '@slack/bolt';
 dotenv.config();
@@ -23,6 +25,7 @@ const app = new App({
   messageController(app);
   messageWithReactions(app);
   botAddsReactions(app);
+  botRemovesReactions(app);
 
   const port = 3000;
   // Start your app

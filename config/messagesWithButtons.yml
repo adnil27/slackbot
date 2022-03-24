@@ -40,4 +40,5 @@ replies:
     reaction2ToAdd: snowflake
     reactionAddedGreeting: 'Hey :wave: '
     reactionAddedReply: " Your request has been marked as complete. :white_check_mark:\n\n:question: If you have a follow up question, untick your message and a member of the team will get back to you."
-    reactionRemovedReply: "\n\nWe have reopened your request. Sit tight and a member of the team will be with you shortly.\n\n"
+    reactionRemovedGreeting: ':robot_face: Hello again '
+    reactionRemovedReply: "\n\nWe have reopened your request, don't you worry. Sit tight and a member of the team will be with you shortly.\n\n"
