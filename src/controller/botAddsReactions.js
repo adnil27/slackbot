@@ -10,7 +10,6 @@ export const botAddsReactions = (app) => {
     const caseCheckAction = new RegExp(res.action, 'i');
 
     app.event('reaction_added', async ({ event, context }) => {
-      console.log(event);
       const messageID = event.item.ts;
       const channelID = event.item.channel;
 
