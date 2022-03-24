@@ -1,14 +1,35 @@
 import fs from 'fs';
 // require the yaml module npm i yaml
 import YAML from 'yaml';
-import { messageWithReactions } from './messagesWithReactions.js';
 
 const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.yml', 'utf8'));
 
-export const botAddsReaction = (app) => {
+export const botAddsReactions = (app) => {
   for (const res of messageConfig.replies) {
+    const caseCheckMessage = new RegExp(res.message, 'i');
+    const caseCheckAction = new RegExp(res.action, 'i');
+
     app.event('reaction_added', async ({ event, context, message, body }) => {
       console.log(event);
+      const messageID = event.item.ts;
+      const channelID = event.item.channel;
+      console.log(messageID);
+      console.log(channelID);
+
+      const result = await app.client.conversations.history({
+        channel: channelID,
+        latest: messageID,
+        inclusive: true,
+        limit: 1
+      });
+
+      const messageResult = result.messages[0];
+      console.log('message: ', messageResult);
+      console.log(messageResult.text);
+
+      if (!messageResult.text.match(caseCheckMessage)) return;
+      if (!messageResult.text.match(caseCheckAction)) return;
+
       if (event.user === res.psTeamUsers) return;
       if (event.reaction === res.reactionAdded && event.item.channel === res.onlyChannel) {
         app.client.chat.postEphemeral({

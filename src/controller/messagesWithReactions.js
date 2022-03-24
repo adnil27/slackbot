@@ -71,8 +71,8 @@ export const messageWithReactions = (app) => {
     const caseCheckAction = new RegExp(res.action, 'i');
 
     app.message(caseCheckMessage, ({ message, context }) => {
-      console.log(message);
       let ignoreMessage = false;
+      console.log(message);
       if (!message.text.match(caseCheckAction)) return;
       if (message.channel !== res.onlyChannel) return;
       if (res.ignoreIfContains) {
