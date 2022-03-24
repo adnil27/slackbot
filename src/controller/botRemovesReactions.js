@@ -2,7 +2,7 @@ import fs from 'fs';
 // require the yaml module npm i yaml
 import YAML from 'yaml';
 
-const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.yml', 'utf8'));
+const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithReactions.yml', 'utf8'));
 
 export const botRemovesReactions = (app) => {
   for (const res of messageConfig.replies) {

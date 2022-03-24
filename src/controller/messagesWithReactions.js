@@ -4,7 +4,7 @@ import YAML from 'yaml';
 
 import { logger } from '../utils/logger.js';
 
-const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithButtons.yml', 'utf8'));
+const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithReactions.yml', 'utf8'));
 
 const postReply = (app, message, context, introduction, solution, greeting, extraInformation, isSolved) => {
   try {
