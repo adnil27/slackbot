@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 import { messageController } from './controller/messages.js';
 
-import { messageWithReactions } from './controller/messagesWithReactions.js';
+import { messageWithReactions } from './controller/messagesWithHowToSolve.js';
 
 import { botAddsReactions } from './controller/botAddsReactions.js';
 

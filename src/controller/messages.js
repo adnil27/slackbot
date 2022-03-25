@@ -23,6 +23,7 @@ export const messageController = (app) => {
     const caseCheck = new RegExp(res.message, 'i');
     app.message(caseCheck, ({ message, context }) => {
       let ignoreMessage = false;
+      if (message.user === res.psTeamUsers) return;
       if (message.channel !== res.onlyChannel) return;
       if (res.ignoreIfContains) {
         for (const ignore of res.ignoreIfContains) {

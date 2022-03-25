@@ -72,6 +72,7 @@ export const messageWithReactions = (app) => {
 
     app.message(caseCheckMessage, ({ message, context }) => {
       let ignoreMessage = false;
+      if (message.user === res.psTeamUsers) return;
       if (!message.text.match(caseCheckAction)) return;
       if (message.channel !== res.onlyChannel) return;
       if (res.ignoreIfContains) {
