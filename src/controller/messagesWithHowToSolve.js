@@ -1,10 +1,6 @@
-import fs from 'fs';
-// require the yaml module npm i yaml
-import YAML from 'yaml';
-
 import { logger } from '../utils/logger.js';
 
-const messageConfig = YAML.parse(fs.readFileSync('./config/messagesWithReactions.yml', 'utf8'));
+import { messageConfig } from './messageConfig.js';
 
 const postReply = (app, message, context, introduction, solution, greeting, extraInformation, isSolved) => {
   try {
@@ -81,6 +77,7 @@ export const messageWithReactions = (app) => {
           if (regex.test(message.text)) ignoreMessage = true;
         }
       }
+      console.log('hello');
       !ignoreMessage
         ? postReply(app, message, context, res.introduction, res.solution, res.greeting, res.extraInformation, res.isSolved)
         : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');

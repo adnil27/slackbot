@@ -1,7 +1,8 @@
+import { logger } from '../utils/logger.js';
+
 import fs from 'fs';
 // require the yaml module npm i yaml
 import YAML from 'yaml';
-import { logger } from '../utils/logger.js';
 
 const messageConfig = YAML.parse(fs.readFileSync('./config/messages.yml', 'utf8'));
 
