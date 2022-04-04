@@ -24,7 +24,7 @@ replies:
     message: (rwg|bwg|reserve with google)
     ifContains: (switch on|turn on|enable)
     onlyChannel: C034H2X55D4
-    greeting: "Hey :wave: "
+    reply: "Hey :wave: "
     introduction: ' To switch on *Reserve With Google* follow these steps... '
     solution: "\n\n:one:  Check that the venue is *live on the marketplace* and that they accept *pay at the venue* bookings.\n\n:two:  Add the Iglu link to this <http://www.example.com|*Google Sheet*>.\n\n:three:  Let the partner know that their request will be processed within 1 business day. :tada:"
     extraInformation: "You can learn more about Reserve With Google <http://www.example.com|here>"
@@ -43,12 +43,12 @@ replies:
     message: (rwg|bwg|reserve with google)
     ifContains: (switch off|turn off|disable)
     onlyChannel: C034H2X55D4
-    greeting: "Hey :wave: "
+    reply: "Hey :wave: "
     introduction: ' To switch off *Reserve With Google* follow these steps... '
     solution: "\n\n:one:  Add the Iglu link to this <http://www.example.com|*Google Sheet*>.\n\n:two:  Let the partner know that their request will be processed within 1 business day. :tada:"
     extraInformation: "You can learn more about Reserve With Google <http://www.example.com|here>"
     isSolved: "Add a :white_check_mark: to your original message to mark your query as resolved."
-    ignoreIfContains: google ad
+    ignoreIfContains:
     psTeamUsers: U035UDUM0H0
     reactionAdded: white_check_mark
     reaction1ToAdd: robot_face
@@ -57,3 +57,11 @@ replies:
     reactionAddedReply: " Your request has been marked as complete. :white_check_mark:\n\n:question: If you have a follow up question, untick your message and a member of the team will get back to you."
     reactionRemovedGreeting: ':robot_face: Hello again '
     reactionRemovedReply: "\n\nWe have reopened your request, don't you worry. Sit tight and a member of the team will be with you shortly.\n\n"
+
+  - name: What up
+    message: hello
+    ifContains: bot
+    onlyChannel: C034H2X55D4
+    psTeamUsers: U035UDUM0H0
+    reply: "Howdy :wave:"
+    introduction: ' How is it going?'
