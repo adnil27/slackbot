@@ -7,12 +7,11 @@ import { postReplyWithResolution } from './postReplyWithResolution.js';
 export const messageWithReactions = (app) => {
   for (const res of messageConfig.replies) {
     const caseCheckMessage = new RegExp(res.message, 'i');
-    const caseCheckAction = new RegExp(res.action, 'i');
+    const caseCheckAction = new RegExp(res.ifContains, 'i');
 
     app.message(caseCheckMessage, ({ message, context }) => {
       let ignoreMessage = false;
       if (message.user === res.psTeamUsers) return;
-      if (!message.text.match(caseCheckMessage)) return;
       if (!message.text.match(caseCheckAction)) return;
       if (message.channel !== res.onlyChannel) return;
       if (res.ignoreIfContains) {

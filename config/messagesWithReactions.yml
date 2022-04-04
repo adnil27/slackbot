@@ -1,6 +1,3 @@
-# Example full config
-#name: message
-
 #replies:
 #  - name: Name of query 
 #    message: (abc|abc|abc)
@@ -25,7 +22,10 @@ name: message
 replies:
   - name: RWG switch on 
     message: (rwg|bwg|reserve with google)
-    action: (switch on|turn on|enable)
+    ifContains: 
+      - switch on
+      - turn on
+      - enable
     onlyChannel: C034H2X55D4
     greeting: "Hey :wave: "
     introduction: ' To switch on *Reserve With Google* follow these steps... '
@@ -45,7 +45,7 @@ replies:
 
   - name: RWG switch off 
     message: (rwg|bwg|reserve with google)
-    action: (switch off|turn off|disable)
+    ifContains: (switch off|turn off|disable)
     onlyChannel: C034H2X55D4
     greeting: "Hey :wave: "
     introduction: ' To switch off *Reserve With Google* follow these steps... '

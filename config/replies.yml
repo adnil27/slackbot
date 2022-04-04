@@ -1,0 +1,34 @@
+# Example full config
+# - name: name your config so other team mebers know what it does.
+#   message: (required) add in a message for slack to watch
+#   reply: (required) the bot will reply to this message
+#   onlyChannel: #(required) add a channel id here i.e C034H2X55D4
+#   ignoreIfContains: # (optional) add regex in here to check the message for that text if its true the bot will not reply
+#     - tools.treatwell.net\/iglu
+name: message
+
+replies:
+  - name: Hello Message
+    message: hello bot
+    reply: hello to you too!
+    onlyChannel: C034H2X55D4
+
+    
+  - name: Saleforce link without iglu link
+    message: treatwell.lightning.force.com
+    reply: "Hey! It looks like you might have forgotten the Iglu link. :see_no_evil:"
+    onlyChannel: C034H2X55D4
+    ignoreIfContains:
+      - tools.treatwell.net\/iglu
+
+  - name: RWG switch on 
+    block: true
+    message: (rwg|bwg|reserve with google)
+    ifContains: enable
+    onlyChannel: C034H2X55D4
+    reply: "Hey :wave: "
+    introduction: ' To switch on *Reserve With Google* follow these steps... '
+    solution: "\n\n:one:  Check that the venue is *live on the marketplace* and that they accept *pay at the venue* bookings.\n\n:two:  Add the Iglu link to this <http://www.example.com|*Google Sheet*>.\n\n:three:  Let the partner know that their request will be processed within 1 business day. :tada:"
+    extraInformation: "You can learn more about Reserve With Google <http://www.example.com|here>"
+    isSolved: "Add a :white_check_mark: to your original message to mark your query as resolved."
+    psTeamUsers: U035UDUM0H0
