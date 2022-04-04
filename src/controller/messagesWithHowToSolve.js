@@ -6,24 +6,17 @@ import { postReplyWithResolution } from './postReplyWithResolution.js';
 
 export const messageWithReactions = (app) => {
   for (const res of messageConfig.replies) {
-    const caseCheckMessage = new RegExp(res.message, 'i');
-    const caseCheckAction = new RegExp(res.action, 'i');
+    const matchMessage = new RegExp(res.message, 'i');
+    const matchAction = new RegExp(res.ifContains, 'i');
+    const matchIgnoreIfContains = new RegExp(res.ignoreIfContains, 'i');
 
-    app.message(caseCheckMessage, ({ message, context }) => {
-      let ignoreMessage = false;
+    app.message(matchMessage, ({ message, context }) => {
       if (message.user === res.psTeamUsers) return;
-      if (!message.text.match(caseCheckMessage)) return;
-      if (!message.text.match(caseCheckAction)) return;
       if (message.channel !== res.onlyChannel) return;
-      if (res.ignoreIfContains) {
-        for (const ignore of res.ignoreIfContains) {
-          const regex = new RegExp(ignore, 'i');
-          if (regex.test(message.text)) ignoreMessage = true;
-        }
+      if (!message.text.match(matchAction)) return;
+      if (!message.text.match(matchIgnoreIfContains)) {
+        postReplyWithResolution(app, message, context, res.introduction, res.solution, res.greeting, res.extraInformation, res.isSolved);
       }
-      !ignoreMessage
-        ? postReplyWithResolution(app, message, context, res.introduction, res.solution, res.greeting, res.extraInformation, res.isSolved)
-        : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
     });
   }
 };

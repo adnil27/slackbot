@@ -6,7 +6,7 @@ import YAML from 'yaml';
 
 const messageConfig = YAML.parse(fs.readFileSync('./config/messages.yml', 'utf8'));
 
-const postReply = (app, message, context, reply) => {
+const postReply1 = (app, message, context, reply) => {
   try {
     app.client.chat.postMessage({
       token: context.botToken,
@@ -33,7 +33,7 @@ export const messageController = (app) => {
         }
       }
       !ignoreMessage
-        ? postReply(app, message, context, res.reply)
+        ? postReply1(app, message, context, res.reply)
         : logger('info', 'This message was ignored as it matched an ignoreIfContains regex test');
     });
   }

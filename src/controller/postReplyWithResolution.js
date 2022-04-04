@@ -1,4 +1,4 @@
-export const postReplyWithResolution = (app, message, context, introduction, solution, greeting, extraInformation, isSolved) => {
+export const postReplyWithResolution = (app, message, context, reply, introduction, solution, extraInformation, isSolved) => {
   try {
     app.client.chat.postMessage({
       token: context.botToken,
@@ -14,7 +14,7 @@ export const postReplyWithResolution = (app, message, context, introduction, sol
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: greeting + `<@${message.user}>` + introduction
+            text: reply + `<@${message.user}>` + introduction
           }
         },
         {

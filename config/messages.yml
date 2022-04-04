@@ -8,10 +8,6 @@
 name: message
 
 replies:
-  - name: Hello Message
-    message: hello bot
-    onlyChannel: C034H2X55D4
-    reply: "Hello to you too! :wave:"
     
   - name: Saleforce link without iglu link
     message: treatwell.lightning.force.com
