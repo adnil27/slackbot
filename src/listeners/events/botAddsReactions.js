@@ -1,11 +1,11 @@
-import { messageConfig } from './messageConfig.js';
+import { messageConfig } from '../../utils/messageConfig.js';
 
-export const botRemovesReactions = (app) => {
+export const botAddsReactions = (app) => {
   for (const res of messageConfig.replies) {
     const caseCheckMessage = new RegExp(res.message, 'i');
     const caseCheckAction = new RegExp(res.action, 'i');
 
-    app.event('reaction_removed', async ({ event, context }) => {
+    app.event('reaction_added', async ({ event, context }) => {
       const messageID = event.item.ts;
       const channelID = event.item.channel;
 
@@ -28,14 +28,14 @@ export const botRemovesReactions = (app) => {
           channel: event.item.channel,
           user: event.user,
           thread_ts: event.item.ts,
-          text: res.reactionRemovedGreeting + `<@${event.user}>` + res.reactionRemovedReply
+          text: res.reactionAddedGreeting + `<@${event.user}>` + res.reactionAddedReply
         });
-        app.client.reactions.remove({
+        app.client.reactions.add({
           name: res.reaction1ToAdd,
           timestamp: event.item.ts,
           channel: event.item.channel
         });
-        app.client.reactions.remove({
+        app.client.reactions.add({
           name: res.reaction2ToAdd,
           timestamp: event.item.ts,
           channel: event.item.channel

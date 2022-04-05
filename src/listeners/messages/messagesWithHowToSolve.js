@@ -1,8 +1,8 @@
-import { messageConfig } from './messageConfig.js';
+import { messageConfig } from '../../utils/messageConfig.js';
 
-import { postReplyWithResolution } from './postReplyWithResolution.js';
+import { postReplyWithResolution } from '../../replies/postReplyWithResolution.js';
 
-export const messageWithReactions = (app) => {
+export const messageWithResolution = (app) => {
   for (const res of messageConfig.replies) {
     const matchMessage = new RegExp(res.message, 'i');
     const matchIgnoreIfContains = new RegExp(res.ignoreIfContains, 'i');

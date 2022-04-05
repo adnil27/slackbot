@@ -59,8 +59,9 @@ replies:
     reactionRemovedReply: "\n\nWe have reopened your request, don't you worry. Sit tight and a member of the team will be with you shortly.\n\n"
 
   - name: What up
-    message: hello
+    message: ''
     ifContains: bot
+    ignoreIfContainsURL: stuff
     onlyChannel: C034H2X55D4
     psTeamUsers: U035UDUM0H0
     reply: "Howdy :wave:"

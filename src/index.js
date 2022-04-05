@@ -1,13 +1,13 @@
 // import utils
 import dotenv from 'dotenv';
 
-import { messageController } from './controller/messages.js';
+import { messageController } from './listeners/messages/messages.js';
 
-import { messageWithReactions } from './controller/messagesWithHowToSolve.js';
+import { messageWithResolution } from './listeners/messages/messagesWithHowToSolve.js';
 
-import { botAddsReactions } from './controller/botAddsReactions.js';
+import { botAddsReactions } from './listeners/events/botAddsReactions.js';
 
-import { botRemovesReactions } from './controller/botRemovesReactions.js';
+import { botRemovesReactions } from './listeners/events/botRemovesReactions.js';
 
 // slack deps
 import SlackBolt from '@slack/bolt';
@@ -23,7 +23,7 @@ const app = new App({
 
 (async () => {
   messageController(app);
-  messageWithReactions(app);
+  messageWithResolution(app);
   botAddsReactions(app);
   botRemovesReactions(app);
 

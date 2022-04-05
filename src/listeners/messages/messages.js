@@ -1,4 +1,4 @@
-import { logger } from '../utils/logger.js';
+import { logger } from '../../utils/logger.js';
 
 import fs from 'fs';
 // require the yaml module npm i yaml
