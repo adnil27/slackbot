@@ -58,6 +58,7 @@ replies:
     reactionRemovedGreeting: ':robot_face: Hello again '
     reactionRemovedReply: "\n\nWe have reopened your request, don't you worry. Sit tight and a member of the team will be with you shortly.\n\n"
 
+# Link Listeners
   - name: Saleforce link without iglu link 
     message: treatwell.lightning.force.com
     onlyChannel: C034H2X55D4
