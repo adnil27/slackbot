@@ -1,9 +1,7 @@
 // import utils
 import dotenv from 'dotenv';
 
-import { messageController } from './listeners/messages/messages.js';
-
-import { messageWithResolution } from './listeners/messages/messagesWithHowToSolve.js';
+import { messageController } from './listeners/messages/messagesWithHowToSolve.js';
 
 import { botAddsReactions } from './listeners/events/botAddsReactions.js';
 
@@ -23,7 +21,6 @@ const app = new App({
 
 (async () => {
   messageController(app);
-  messageWithResolution(app);
   botAddsReactions(app);
   botRemovesReactions(app);
 

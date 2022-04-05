@@ -58,11 +58,9 @@ replies:
     reactionRemovedGreeting: ':robot_face: Hello again '
     reactionRemovedReply: "\n\nWe have reopened your request, don't you worry. Sit tight and a member of the team will be with you shortly.\n\n"
 
-  - name: What up
-    message: ''
-    ifContains: bot
-    ignoreIfContainsURL: stuff
+  - name: Saleforce link without iglu link 
+    message: treatwell.lightning.force.com
     onlyChannel: C034H2X55D4
-    psTeamUsers: U035UDUM0H0
-    reply: "Howdy :wave:"
-    introduction: ' How is it going?'
+    reply: "Hello "
+    introduction: ' It looks like you might have forgotten the Iglu link. :see_no_evil: '
+    ignoreIfContains: tools.treatwell.net\/iglu
