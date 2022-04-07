@@ -2,8 +2,9 @@ import { messageConfig } from '../../utils/messageConfig.js';
 
 export const botAddsReactions = (app) => {
   for (const res of messageConfig.replies) {
-    const caseCheckMessage = new RegExp(res.message, 'i');
-    const caseCheckAction = new RegExp(res.action, 'i');
+    const matchMessage = new RegExp(res.message, 'i');
+    const matchIgnoreIfContains = new RegExp(res.ignoreIfContains, 'i');
+    const matchIfContains = new RegExp(res.ifContains, 'i');
 
     app.event('reaction_added', async ({ event, context }) => {
       const messageID = event.item.ts;
@@ -18,8 +19,9 @@ export const botAddsReactions = (app) => {
 
       const messageResult = result.messages[0];
 
-      if (!messageResult.text.match(caseCheckMessage)) return;
-      if (!messageResult.text.match(caseCheckAction)) return;
+      if (!messageResult.text.match(matchMessage)) return;
+      if (!messageResult.text.match(matchIfContains)) return;
+      if (messageResult.text.match(matchIgnoreIfContains)) return;
 
       if (event.user === res.psTeamUsers) return;
       if (event.reaction === res.reactionAdded && event.item.channel === res.onlyChannel) {
