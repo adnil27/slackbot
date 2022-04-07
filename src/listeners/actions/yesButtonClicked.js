@@ -1,5 +1,5 @@
 export const actionController = (app) => {
-  app.action('yes_button', async ({ ack, action, body, context, client }) => {
+  app.action('yes_button', async ({ ack, action, body, context, client, respond }) => {
     await ack();
     console.log(action);
     if (body.message) {
@@ -8,6 +8,12 @@ export const actionController = (app) => {
         latest: body.message.ts,
         inclusive: true,
         limit: 1
+      });
+
+      await respond({
+        replace_original: true,
+        user: body.message.user,
+        text: 'hello :wave:'
       });
 
       const messageResult = result.messages[0];
