@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 
 import { messageController } from './listeners/messages/messageController.js';
 
+import { actionController } from './listeners/actions/yesButtonClicked.js';
+
 import { botAddsReactions } from './listeners/events/botAddsReactions.js';
 
 import { botRemovesReactions } from './listeners/events/botRemovesReactions.js';
@@ -20,6 +22,7 @@ const app = new App({
 });
 
 (async () => {
+  actionController(app);
   messageController(app);
   botAddsReactions(app);
   botRemovesReactions(app);

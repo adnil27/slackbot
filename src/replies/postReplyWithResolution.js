@@ -49,6 +49,33 @@ export const postReplyWithResolution = (app, message, context, reply, introducti
         },
         {
           type: 'divider'
+        },
+        {
+          type: 'actions',
+          elements: [
+            {
+              style: 'primary',
+              type: 'button',
+              text: {
+                type: 'plain_text',
+                text: 'Yes',
+                emoji: true
+              },
+              value: 'click_me_123',
+              action_id: 'yes_button'
+            },
+            {
+              style: 'danger',
+              type: 'button',
+              text: {
+                type: 'plain_text',
+                text: 'No',
+                emoji: true
+              },
+              value: 'click_me_123',
+              action_id: 'no_button'
+            }
+          ]
         }
       ]
     });

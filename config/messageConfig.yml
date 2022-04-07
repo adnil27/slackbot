@@ -47,7 +47,7 @@ replies:
     introduction: ' To switch off *Reserve With Google* follow these steps... '
     solution: "\n\n:one:  Add the Iglu link to this <http://www.example.com|*Google Sheet*>.\n\n:two:  Let the partner know that their request will be processed within 1 business day. :tada:"
     extraInformation: "You can learn more about Reserve With Google <http://www.example.com|here>"
-    isSolved: "Add a :white_check_mark: to your original message to mark your query as resolved."
+    isSolved: "Click *yes* to mark your query as resolved. If I misunderstood your request, please click *no* so I can learn and improve."
     ignoreIfContains:
     psTeamUsers: U035UDUM0H0
     reactionAdded: white_check_mark
