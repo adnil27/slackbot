@@ -1,9 +1,9 @@
-export const postReplyWithResolution = (app, message, context, reply, introduction, solution, extraInformation, isSolved) => {
+export const postReplyWithSolvedStatus = (app, message, context, action, reply, introduction, solution, extraInformation, isSolved, complete) => {
   try {
-    app.client.chat.postMessage({
+    app.client.chat.update({
       token: context.botToken,
-      channel: message.channel,
-      user: message.user,
+      channel: action.channel,
+      as_user: true,
       thread_ts: message.ts,
       text: ' ',
       blocks: [
@@ -49,6 +49,23 @@ export const postReplyWithResolution = (app, message, context, reply, introducti
         },
         {
           type: 'divider'
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: complete
+          },
+          accessory: {
+            type: 'button',
+            text: {
+              type: 'plain_text',
+              text: 'Reopen',
+              emoji: true
+            },
+            value: 'click_me_123',
+            action_id: 'button-action'
+          }
         }
       ]
     });

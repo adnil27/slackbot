@@ -29,7 +29,7 @@ replies:
     solution: "\n\n:one:  Check that the venue is *live on the marketplace* and that they accept *pay at the venue* bookings.\n\n:two:  Add the Iglu link to this <http://www.example.com|*Google Sheet*>.\n\n:three:  Let the partner know that their request will be processed within 1 business day. :tada:"
     extraInformation: "You can learn more about Reserve With Google <http://www.example.com|here>"
     isSolved: "Add a :white_check_mark: to your original message to mark your query as resolved."
-    ignoreIfContains: google ad
+    ignoreIfContains: ppc
     psTeamUsers: U035UDUM0H0
     reactionAdded: white_check_mark
     reaction1ToAdd: robot_face
@@ -38,6 +38,7 @@ replies:
     reactionAddedReply: " Your request has been marked as complete. :white_check_mark:\n\n:question: If you have a follow up question, untick your message and a member of the team will get back to you."
     reactionRemovedGreeting: ':robot_face: Hello again '
     reactionRemovedReply: "\n\nWe have reopened your request, don't you worry. Sit tight and a member of the team will be with you shortly.\n\n"
+    complete: "Fantastic! :tada: We have marked your query as resolved. If you have any follow up questions, feel free to click on the reopen button and a member of the team will get back to you."
 
   - name: RWG switch off 
     message: (rwg|bwg|reserve with google)
@@ -60,8 +61,8 @@ replies:
 
 # Link Listeners
   - name: Saleforce link without iglu link 
-    message: treatwell.lightning.force.com
+    message: (treatwell.lightning.force.com|treatwell2021.lightning.force.com)
     onlyChannel: C034H2X55D4
     reply: "Hello "
-    introduction: ' It looks like you might have forgotten the Iglu link. :see_no_evil: '
+    introduction: " :wave: \n\nIt looks like you might have forgotten the Iglu link. Could you add that into the thread, please? :pray: \n\n Not everyone in the team has access to Salesforce. :see_no_evil: "
     ignoreIfContains: tools.treatwell.net\/iglu
